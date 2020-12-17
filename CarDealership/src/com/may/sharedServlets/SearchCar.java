@@ -1,4 +1,4 @@
-package com.shared.servlets;
+package com.may.sharedServlets;
 
 import javax.servlet.http.HttpServlet;
 

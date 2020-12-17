@@ -1,4 +1,4 @@
-package com.customer.servlets;
+package com.may.customerServlets;
 
 import javax.servlet.http.HttpServlet;
 

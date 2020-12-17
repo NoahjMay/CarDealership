@@ -1,4 +1,4 @@
-package com.employee.servlets;
+package com.may.employeeServlets;
 
 import javax.servlet.http.HttpServlet;
 

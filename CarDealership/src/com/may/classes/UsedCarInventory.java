@@ -1,4 +1,4 @@
-package com.Classes;
+package com.may.classes;
 
 public class UsedCarInventory 
 {

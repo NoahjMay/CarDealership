@@ -1,7 +1,12 @@
-package com.Classes;
+package com.may.classes;
 
 public class Car 
 {
+		@Override
+	public String toString() {
+		return "<tr>" + make + model +  year + trim + color + doors + vin + daysOnLot + "</tr>";
+	}
+
 		private String make;
 		private String model;
 		private String year;
@@ -16,7 +21,7 @@ public class Car
 		private boolean isNew;
 		private boolean isUsed;
 		
-		Car(String make, String model, String year, String trim, String color, String doors,
+		public Car(String make, String model, String year, String trim, String color, String doors,
 			String vin, int daysOnLot, boolean isBidable, boolean isNew, boolean isUsed) 
 		{
 		this.make 			= make;
