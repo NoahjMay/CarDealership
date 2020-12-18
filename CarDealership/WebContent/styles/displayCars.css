@@ -1,1 +1,31 @@
 @charset "ISO-8859-1";
+
+#cars {
+	font-family: times, Helvetica, sans-serif;
+	border-style: groove;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#cars td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#cars tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#cars tr:hover {
+	background-color: #ddd;
+}
+
+#cars th {
+	border: 1px solid black;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: red;
+	color: white;
+}

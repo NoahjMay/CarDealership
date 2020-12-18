@@ -40,29 +40,6 @@ public class Login extends HttpServlet
 			response.sendRedirect("index.jsp");
 		}
 		
-	}
-	
-//	<servlet>
-//	<servlet-name>Login</servlet-name>
-//	<servlet-class>com.shared.servlets.Login</servlet-class>
-//
-//</servlet>
-//
-//<servlet-mapping>
-//	<servlet-name>Login</servlet-name>
-//	<url-pattern>/index</url-pattern>
-//</servlet-mapping>
-//
-//<servlet>
-//	<servlet-name>DisplayCars</servlet-name>
-//	<servlet-class>com.shared.servlets.DisplayCars</servlet-class>
-//
-//</servlet>
-//
-//<servlet-mapping>
-//	<servlet-name>DisplayCars</servlet-name>
-//	<url-pattern>/employee</url-pattern>
-//</servlet-mapping>
-	
+	}	
 	
 }

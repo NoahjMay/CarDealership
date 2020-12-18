@@ -1,5 +1,5 @@
 package com.may.sharedServlets;
-
+//TODO add mpg 
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -27,8 +27,7 @@ public class DisplayCars extends HttpServlet
 		String trim			= "ls";
 		String color		= "yellow";
 		String doors		= "two door";
-		String vin			= "hdsfkjhdkjhfuhuh+6565455+4565+";
-		String bob 			= "bob";
+		String vin			= "hdhj5464651dfd";
 		
 		int daysOnLot		= 20;
 				
@@ -38,17 +37,11 @@ public class DisplayCars extends HttpServlet
 		
 		List<Car> newCars = Arrays.asList(new Car(make, model, year, trim, color, doors, vin, daysOnLot, 
 				isBidable, isNew, isUsed));
-		List<Car> usedCars = Arrays.asList(new Car(make, model, year, trim, color, doors, vin, daysOnLot, 
-				isBidable, isNew, isUsed));
-		
-		request.setAttribute("bob", bob);
-		request.setAttribute("usedCars", usedCars);
+
 		request.setAttribute("newCars", newCars);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("employee.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
 
-		requestDispatcher.forward(request, response);
-
-	
+		requestDispatcher.forward(request, response);	
 		
 	}
 	  

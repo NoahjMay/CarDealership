@@ -2,10 +2,10 @@ package com.may.classes;
 
 public class Car 
 {
-		@Override
-	public String toString() {
-		return "<tr>" + make + model +  year + trim + color + doors + vin + daysOnLot + "</tr>";
-	}
+//		@Override
+//	public String toString() {
+//		return  make +" "+ model +" "+ year +" "+ trim +" "+ color +" "+ doors +" "+ vin +" "+ daysOnLot ;
+//	}
 
 		private String make;
 		private String model;

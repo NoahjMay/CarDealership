@@ -17,34 +17,7 @@
 
 			Customer Page
 		
-		<form action="DisplayCars" method="get">
-
-		<div class="container">
-
-			<button type="submit">DisplayCars</button>
-<table>
-  <tr>
-    <th>make</th>
-    <th>model</th>
-    <th>year</th>
-    <th>trim</th>
-    <th>color</th>
-    <th>doors</th>
-    <th>vin</th>
-    <th>daysOnLot</th>
-  </tr>
-  </table>
-			<c:forEach items="${usedCars}" var="usedCars"> 
-			${usedCars} <br>						
-				
-			</c:forEach>
-
-		</div>
-	</form>
-		
-		
-		
-		
+	
 		
 		
 </body>
