@@ -15,11 +15,5 @@
 </head>
 <body>
 
-		Employee Page
-		${bob}
-<c:forEach items="${newCars}" var="newCars"> 
-		${newCars} <br>						
-
-		</c:forEach>
 </body>
 </html>

@@ -2,7 +2,7 @@
 //TODO need to make the back button not work (with the session id) 
 //TODO need to fix the logic and make it not hard coded 
 
-package com.may.sharedServlets;
+package com.shared.servlets;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;

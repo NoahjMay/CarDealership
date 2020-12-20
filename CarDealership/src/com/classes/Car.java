@@ -1,4 +1,4 @@
-package com.may.classes;
+package com.classes;
 
 public class Car 
 {
