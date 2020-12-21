@@ -17,7 +17,8 @@
 
 			Customer Page
 		
-	
+	<jsp:include page="/newCars.jsp"/>
+	<jsp:include page="/usedCars.jsp"/>
 		
 		
 </body>

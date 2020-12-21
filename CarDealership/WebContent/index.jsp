@@ -27,9 +27,8 @@
 
 		</div>
 	</form>
-
-
-    <jsp:include page="/displayCars.jsp"/>
+<jsp:include page="/newCars.jsp"/>
+<jsp:include page="/usedCars.jsp"/>
 
 
 </body>
