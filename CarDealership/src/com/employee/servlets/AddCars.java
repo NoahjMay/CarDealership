@@ -1,7 +1,6 @@
-package com.shared.servlets;
+package com.employee.servlets;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -15,25 +14,32 @@ import javax.servlet.http.HttpSession;
 import com.classes.Car;
 
 /**
- * Servlet implementation class newCars
+ * Servlet implementation class AddCars
  */
-@WebServlet("/DisplayCars")
-public class DisplayCars extends HttpServlet {
+@WebServlet("/AddCars")
+public class AddCars extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayCars() 
-    {
+    public AddCars() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);  
 		
 		ArrayList<Car>newCars = (ArrayList<Car>)session.getAttribute("newCar"); 
@@ -48,7 +54,7 @@ public class DisplayCars extends HttpServlet {
 		if(usedCars==null) 
 		{
 			usedCars = new ArrayList<Car>();
-		}			
+		}
 		
 		Car mazda = new Car("Mazda", "Miata", "2020", "MX-5", "White", "2 door", "27 mpg",
 				"vs623345863", "2 miles", "26580$$", 100, false, true);
@@ -72,17 +78,35 @@ public class DisplayCars extends HttpServlet {
 		usedCars.add(chevy);
 		usedCars.add(chevy);
 		
+		Car newCar = new Car();
+		
+		boolean isNew = Boolean.parseBoolean(request.getParameter("isNew"));
+		
+		newCar.setMake(request.getParameter("make"));
+		newCar.setModel(request.getParameter("model"));
+		newCar.setYear(request.getParameter("year"));
+		newCar.setTrim(request.getParameter("trim"));
+		newCar.setColor(request.getParameter("color"));
+		newCar.setDoors(request.getParameter("doors"));
+		newCar.setMpg(request.getParameter("mpg"));
+		newCar.setVin(request.getParameter("vin"));
+		newCar.setMiles(request.getParameter("miles"));
+		newCar.setPrice(request.getParameter("price"));	
+		newCar.setNew(isNew);
+		
+		if(newCar.isNew()==true) 
+		{
+			newCars.add(newCar);
+		}
+		else usedCars.add(newCar);
+		
+
+		
 		session.setAttribute("newCars",newCars); 
 		session.setAttribute("usedCars",usedCars);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
 		
-		
+		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("employee.jsp");  
+	     requestDispatcher.forward(request, response);
 	}
 
 }

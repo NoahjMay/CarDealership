@@ -2,10 +2,7 @@ package com.classes;
 
 public class Car 
 {
-//		@Override
-//	public String toString() {
-//		return  make +" "+ model +" "+ year +" "+ trim +" "+ color +" "+ doors +" "+ vin +" "+ daysOnLot ;
-//	}
+
 
 		private String make;
 		private String model;
@@ -18,10 +15,10 @@ public class Car
 		private String miles;
 		private String price;
 		
-		private int daysOnLot;
+		private int daysOnLot		= 0;
 				
-		private boolean isBidable;
-		private boolean isNew;
+		private boolean isBidable 	= false;
+		private boolean isNew 		= true;
 		
 		public Car() {}
 		
