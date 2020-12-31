@@ -1,165 +1,262 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="/LoadCars" />
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styles/employee.css">
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" >
 
 
 <meta charset="ISO-8859-1">
 <title>Employee</title>
 </head>
-<body>
 
- <div class="flex-container">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div> 
+<body class="p-3 mb-2 bg-secondary text-muted">
 
 
 
 
 
+	<br>
 
-	<div>
-		<form name="addCarform" class="container" action="EmployeeUpdateCars" method="post">
-			<div>
-				<h4>Add A car to the Inventory</h4>
+	<form class="form-control btn btn-dark " action="AddCar" method="post"
+		style="color: white;">
+
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"></div>
+			<div class="col-md-4 themed-grid-col">
+				<h4>Add a vehicle to the lot</h4>
 			</div>
-			<div>
-				Car Make <select class="form-control" name="make">
+			<div class="col-md-4 themed-grid-col"></div>
+		</div>
+		<div class="row mb-3 " style="color: white;">
+
+			<div class="col-md-4 themed-grid-col">
+				<label for="make">Select Manufacturer</label> <select
+					class="form-control" name="make" style="color: black;" required>
 					<c:forEach var="manufacturer" items="${manufacturers}">
-						<option value="${manufacturer}"><c:out
-								value="${manufacturer}" /></option>
-
+						<option value="${manufacturer}">
+							<c:out value="${manufacturer}" />
+						</option>
 					</c:forEach>
-
-				</select>
+				</select>	
 			</div>
 
-			<div>
-				<label for="model"></label> <input type="text" name="model"
-					id="model" placeholder="model" required>
-			</div>
-
-			<div>
-				<label for="trim"></label> <input type="text" name="trim" id="trim"
-					placeholder="trim" required>
-			</div>
-			<div>
-				<label for="color"></label> <input type="text" name="color"
-					id="color" placeholder="color" required>
-			</div>
-			<div>
-				<label for="doors"></label> <input type="text" name="doors"
-					id="doors" placeholder="doors" required>
-			</div>
-			<div>
-				<label for="mpg"></label> <input type="text" name="mpg" id="mpg"
-					placeholder="mpg" required>
-			</div>
-			<div>
-				<label for="vin"></label> <input type="text" name="vin" id="vin"
-					placeholder="vin" required>
-			</div>
-			<div>
-				<label for="miles"></label> <input type="text" name="miles"
-					id="miles" placeholder="miles" required>
-			</div>
-			<div>
-				<label for="price"></label> <input type="text" name="price"
-					id="price" placeholder="price" required>
-			</div>
-			<div>
-				<label for="daysOnLot"></label> <input type="text" name="daysOnLot"
-					id="daysOnLot" placeholder="daysOnLot" required>
-			</div>
-			<div>
-				<br>Can you bid on it?<select class="form-control"
-					name="bidable">
+			<div class="col-md-4 themed-grid-col">
+				<label for="bidable">Should Bids be Accepted?</label> <select
+					class="form-control" name="bidable" style="color: black;" required>
 					<option value="true">YES</option>
 					<option value="false">NO</option>
-
-
 				</select>
 			</div>
-			<div>
-				<br> New Or Used <select class="form-control" name="isNew">
+
+			<div class="col-md-4 themed-grid-col">
+				<label for="isNew">New Or Used?</label> <select class="form-control"
+					name="isNew" style="color: black;" required>
 					<option value="true">New</option>
 					<option value="false">Used</option>
-
-
 				</select>
 			</div>
-			<div>
-				<input type="date" id="datepicker" name="year">
-			</div>
-			<div>
-				<button type="submit">Add Car</button>
-			</div>
-		</form>
 
-	</div>
+		</div>
 
-	<div>
-		<form class="container" action="EmployeeUpdateCars" method="post">
 
-			<div>
-				<label for="bidableVin"><b>input the VIN:</b></label> <input
-					type="text" name="bidableVin" id="bidableVin" placeholder="vin"
-					required>
+		<div class="row mb-3">
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="model"
+					placeholder="Model" style="color: black;" required>
 			</div>
 
-			<div>
-				<br>Set if a bid can be placed<select class="form-control"
-					name="bidToggle">
+
+
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="trim"
+					placeholder="Trim" style="color: black;" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="color"
+					placeholder="Color" style="color: black;" required>
+			</div>
+
+		</div>
+
+		<div class="row mb-3">
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="number" name="mpg" id="mpg"
+					placeholder="MPG" style="color: black;" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="vin" id="vin"
+					placeholder="Vin" style="color: black;" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="miles"
+					placeholder="Miles" style="color: black;" required>
+			</div>
+
+		</div>
+
+		<div class="row mb-3">
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="price"
+					placeholder="price" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="daysOnLot"
+					placeholder="Days On Lot" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="year"
+					placeholder="Year" required>
+			</div>
+
+		</div>
+
+		<div class="row mb-3">
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="doors"
+					placeholder="Number Of Doors" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="image"
+					placeholder="Image" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<input class="form-control" type="text" name="description"
+					placeholder="Description" required>
+			</div>
+
+		</div>
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"></div>
+			<div class="col-md-4 themed-grid-col">
+				<button class="form-control " type="submit">Add Car</button>
+			</div>
+			<div class="col-md-4 themed-grid-col"></div>
+		</div>
+	</form>
+
+	<br>
+	<br>
+
+
+	<form class="form-control btn btn-dark" action="BidUpdate"
+		method="post">
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"></div>
+			<div class="col-md-4 themed-grid-col">
+				<h5>Form to enable or disable bidding on a vehicle</h5>
+			</div>
+			<div class="col-md-4 themed-grid-col"></div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col">
+				<label for="bidableVin">Enter the vin of the vehicle you
+					want to update</label> <input class="form-control" type="text"
+					name="bidableVin" placeholder="vin" required>
+			</div>
+
+			<div class="col-md-4 themed-grid-col">
+				<label for="bidToggle">Can a bid be placed?</label> <select
+					class="form-control" name="bidToggle" required>
 					<option value="true">YES</option>
 					<option value="false">NO</option>
 				</select>
 			</div>
 
-			<div>
-				<button type="submit">Toggle Bid enabled</button>
+			<div class="col-md-4 themed-grid-col">
+				<label>Set bid ability</label>
+				<button class="form-control" type="submit">Submit</button>
 			</div>
-		</form>
-	</div>
+		</div>
+	</form>
+	<br>
+	<br>
 	<div>
 
-		<div style="overflow-x: auto;">
-			<table class="table table-hover table-dark" style="color: Tomato;">
+		<div>
+			<form class="form-control btn btn-dark"
+				action="EmployeeSearchByMakeModel" method="post">
+
+				<div class="row mb-3">
+					<div class="col-md-4 themed-grid-col"></div>
+					<div class="col-md-4 themed-grid-col">
+						<h5>Search by make and model</h5>
+					</div>
+					<div class="col-md-4 themed-grid-col"></div>
+				</div>
+				<div class="row mb-3">
+
+					<div class="col-md-4 themed-grid-col">
+						<label for="searchMake"> </label> <input class="form-control"
+							type="text" name="searchMake" id="searchMake"
+							placeholder="Enter Make" style="color: black;" required>
+
+					</div>
+
+					<div class="col-md-4 themed-grid-col">
+						<label for="searchModel"> </label> <input class="form-control"
+							type="text" name="searchModel" id="searchModel"
+							placeholder="Enter Model" style="color: black;" required>
+
+					</div>
+
+					<div class="col-md-4 themed-grid-col">
+						<label></label>
+						<button class="form-control" type="submit">Search</button>
+					</div>
+				</div>
+			</form>
+
+			<form class="form-control btn btn-dark" action="EmployeeClearSearch"
+				method="get">
+				<div class="row mb-3">
+					<div class="col-md-4 themed-grid-col"></div>
+					<div class="col-md-4 themed-grid-col">
+						<label>clear search</label>
+						<button class="form-control" type="submit">clear</button>
+					</div>
+					<div class="col-md-4 themed-grid-col"></div>
+				</div>
+			</form>
+
+			<br> <br>
+
+			<table class="table table-hover table-dark" style="color: white;">
 				<thead>
 					<tr>
-						<th scope="col"><h6>New Cars</h6></th>
-						<th scope="col"><select class="form-control" name="searchByNewMake">
-						<option value="searchByMake">Search By Make</option>
-					<c:forEach var="manufacturer" items="${manufacturers}">
-						<option value="${manufacturer}"><c:out value="${manufacturer}" /></option>
-					</c:forEach>
-					
-				</select>
-				
-					<th scope="col"><label for="model"></label> <input type="text" name="model"
-					id="model" placeholder="Search by model" required>
-							<button type="submit"name = "newSearch">Search</button>
-							<button type="submit" name = "newClearSearch">Clear Search</button></th>
-					
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th scope="col">NEW CARS</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
 					</tr>
-
-					
-				</thead>
-			</table>
-			<table class="table table-hover table-dark" style="color: Tomato;">
-				<thead>
 					<tr>
 						<th scope="col">Make</th>
 						<th scope="col">Model</th>
@@ -196,30 +293,26 @@
 					</tbody>
 				</c:if>
 			</table>
+
 		</div>
 	</div>
 
 	<div>
-
-		<table class="table table-hover table-dark" style="color: Tomato;">
+		<table class="table table-hover table-dark" style="color: white;">
 			<thead>
 				<tr>
-					<th scope="col"><h6>Used Cars</h6></th>
-					<th scope="col"><label for="searchUsed">Search By: </label> <select
-						name="searchUsed" id="searchUsed">
-							<option value="usedMake">make</option>
-							<option value="usedModel">model</option>
-					</select>
-						<button type="submit" name = "usedSearch">Search</button>
-						<button type="submit" name = "usedClearSearch">Clear Search</button></th>
-
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th scope="col">USED CARS</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
-
-
-			</thead>
-		</table>
-		<table class="table table-hover table-dark" style="color: Tomato;">
-			<thead>
 				<tr>
 					<th scope="col">Make</th>
 					<th scope="col">Model</th>
@@ -257,5 +350,112 @@
 			</c:if>
 		</table>
 	</div>
+	
+	<table class="table table-hover table-dark" style="color: white;">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th scope="col">OFFER CARS</th>
+						<th></th>	
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr>
+						<th scope="col">First name</th>
+						<th scope="col">Last name</th>
+						<th scope="col">Email</th>
+						
+						<th scope="col">Make</th>
+						<th scope="col">Model</th>
+						<th scope="col">Year</th>
+						<th scope="col">Trim</th>
+						<th scope="col">Color</th>
+						<th scope="col">Vin</th>
+						<th scope="col">price</th>
+						<th scope="col">bid enabled</th>
+					</tr>
+
+				</thead>
+				<c:if test="${soldCars != null}">
+					<tbody>
+						<c:forEach var="offerCar" items="${offerCars}">
+							<tr>
+								<td><c:out value="${offerCar.price}" /></td>
+								<td><c:out value="${offerCar.price}" /></td>
+								<td><c:out value="${offerCar.price}" /></td>
+								<td><c:out value="${offerCar.make}" /></td>
+								<td><c:out value="${offerCar.model}" /></td>
+								<td><c:out value="${offerCar.year}" /></td>
+								<td><c:out value="${offerCar.trim}" /></td>
+								<td><c:out value="${offerCar.color}" /></td>
+								<td><c:out value="${offerCar.mpg}" /></td>
+								<td><c:out value="${offerCar.vin}" /></td>
+								<td><c:out value="${offerCar.price}" /></td>
+								<td><c:out value="${offerCar.isBidable()}" /></td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</c:if>
+			</table>
+			
+			<table class="table table-hover table-dark" style="color: white;">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th scope="col">SOLD CARS</th>
+						<th></th>	
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr>
+						<th scope="col">First name</th>
+						<th scope="col">Last name</th>
+						<th scope="col">Email</th>
+						
+						<th scope="col">Make</th>
+						<th scope="col">Model</th>
+						<th scope="col">Year</th>
+						<th scope="col">Trim</th>
+						<th scope="col">Color</th>
+						<th scope="col">Vin</th>
+						<th scope="col">price</th>
+						<th scope="col">bid enabled</th>
+					</tr>
+
+				</thead>
+				<c:if test="${soldCars != null}">
+					<tbody>
+						<c:forEach var="soldCar" items="${soldCars}">
+							<tr>
+								<td><c:out value="${soldCar.price}" /></td>
+								<td><c:out value="${soldCar.price}" /></td>
+								<td><c:out value="${soldCar.price}" /></td>
+								<td><c:out value="${soldCar.make}" /></td>
+								<td><c:out value="${soldCar.model}" /></td>
+								<td><c:out value="${soldCar.year}" /></td>
+								<td><c:out value="${soldCar.trim}" /></td>
+								<td><c:out value="${soldCar.color}" /></td>
+								<td><c:out value="${soldCar.mpg}" /></td>
+								<td><c:out value="${soldCar.vin}" /></td>
+								<td><c:out value="${soldCar.price}" /></td>
+								<td><c:out value="${soldCar.isBidable()}" /></td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</c:if>
+			</table>
 </body>
+
 </html>

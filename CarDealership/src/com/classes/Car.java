@@ -3,7 +3,8 @@ package com.classes;
 public class Car 
 {
 
-
+		private String image;
+		private String description;
 		private String make;
 		private String model;
 		private String year;
@@ -14,30 +15,44 @@ public class Car
 		private String vin;
 		private String miles;
 		private String price;
+		private String daysOnLot;
 		
-		private int daysOnLot		= 0;
-				
-		private boolean isBidable 	= false;
-		private boolean isNew 		= true;
+		private boolean bidable;
+		private boolean isNew;
 		
-		public Car() {}
-		
-		public Car(String make, String model, String year, String trim, String color, String doors, String mpg,
-			String vin, String miles, String price, int daysOnLot, boolean isBidable, boolean isNew) 
+		public Car() 
 		{
-		this.make 			= make;
-		this.model 			= model;
-		this.year 			= year;
-		this.trim 			= trim;
-		this.color 			= color;
-		this.doors 			= doors;
-		this.mpg 			= mpg;
-		this.vin 			= vin;
-		this.miles 			= miles;
-		this.price 			= price;
-		this.daysOnLot 		= daysOnLot;
-		this.isBidable 		= isBidable;
-		this.isNew 			= isNew;
+
+			
+		}
+
+		public Car(String image, String description, String make, String model, String year, String trim, String color,
+				String doors, String mpg, String vin, String miles, String price, String daysOnLot, boolean bidable,
+				boolean isNew) 
+		{
+			this.image = image;
+			this.description = description;
+			this.make = make;
+			this.model = model;
+			this.year = year;
+			this.trim = trim;
+			this.color = color;
+			this.doors = doors;
+			this.mpg = mpg;
+			this.vin = vin;
+			this.miles = miles;
+			this.price = price;
+			this.daysOnLot = daysOnLot;
+			this.bidable = bidable;
+			this.isNew = isNew;
+		}
+
+		public String getImage() {
+			return image;
+		}
+
+		public String getDescription() {
+			return description;
 		}
 
 		public String getMake() {
@@ -80,16 +95,24 @@ public class Car
 			return price;
 		}
 
-		public int getDaysOnLot() {
+		public String getDaysOnLot() {
 			return daysOnLot;
 		}
 
 		public boolean isBidable() {
-			return isBidable;
+			return bidable;
 		}
 
 		public boolean isNew() {
 			return isNew;
+		}
+
+		public void setImage(String image) {
+			this.image = image;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public void setMake(String make) {
@@ -132,19 +155,18 @@ public class Car
 			this.price = price;
 		}
 
-		public void setDaysOnLot(int daysOnLot) {
+		public void setDaysOnLot(String daysOnLot) {
 			this.daysOnLot = daysOnLot;
 		}
 
-		public void setBidable(boolean isBidable) {
-			this.isBidable = isBidable;
+		public void setBidable(boolean bidable) {
+			this.bidable = bidable;
 		}
 
 		public void setNew(boolean isNew) {
 			this.isNew = isNew;
 		}
-
-
+		
 }
 	
 	
