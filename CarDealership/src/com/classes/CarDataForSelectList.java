@@ -24,7 +24,7 @@ public class CarDataForSelectList
 										"Land Rover","Landwind","Lexus",
 										"Lotus","Maserati","Maybach",
 										"Mazda","McLaren","Mercedes-Benz",
-										"MG","Mini","Mitsubishi",
+										"GM","Mini","Mitsubishi",
 										"Morgan","Nissan","Opel",
 										"Peugeot","Porsche","Renault",
 										"Rolls-Royce","Rover","Saab",

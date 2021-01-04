@@ -51,7 +51,7 @@ public class Login extends HttpServlet
 					HttpSession session = request.getSession(true);
 					session.setAttribute("email", email);
 					
-					response.sendRedirect("employee.jsp");
+					response.sendRedirect("customer.jsp");
 				}
 				
 			}
@@ -65,7 +65,7 @@ public class Login extends HttpServlet
 					HttpSession session = request.getSession(true);
 					session.setAttribute("email", email);
 					
-					response.sendRedirect("customer.jsp");
+					response.sendRedirect("employee.jsp");
 				}
 				
 			}

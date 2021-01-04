@@ -2,44 +2,64 @@ package com.classes;
 
 public class CarOffer 
 {
+	private String offerPrice;
 	
-	boolean offerAccepted;
-	
+	private boolean offerAccepted;
+
 	Customer customer = new Customer();
 	
-	Car customerOfferCar = new Car();
+	Car customerCarOffer = new Car();
 	
-	CarOffer(){}
+	public CarOffer(){}
 
-	public CarOffer(boolean offerAccepted, Customer customer, Car customerOfferCar) 
+	public CarOffer(String offerPrice, boolean offerAccepted, Customer customer, Car customerCarOffer) 
 	{
+		this.offerPrice = offerPrice;
 		this.offerAccepted = offerAccepted;
 		this.customer = customer;
-		this.customerOfferCar = customerOfferCar;
+		this.customerCarOffer = customerCarOffer;
 	}
 
-	public boolean isOfferAccepted() {
+	public String getOfferPrice() 
+	{
+		return offerPrice;
+	}
+
+	public boolean isOfferAccepted() 
+	{
 		return offerAccepted;
 	}
 
-	public Customer getCustomer() {
+	public Customer getCustomer() 
+	{
 		return customer;
 	}
 
-	public Car getCustomerOfferCar() {
-		return customerOfferCar;
+	public Car getCustomerCarOffer() 
+	{
+		return customerCarOffer;
 	}
 
-	public void setOfferAccepted(boolean offerAccepted) {
+	public void setOfferPrice(String offerPrice) 
+	{
+		this.offerPrice = offerPrice;
+	}
+
+	public void setOfferAccepted(boolean offerAccepted) 
+	{
 		this.offerAccepted = offerAccepted;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Customer customer) 
+	{
 		this.customer = customer;
 	}
 
-	public void setCustomerOfferCar(Car customerOfferCar) {
-		this.customerOfferCar = customerOfferCar;
+	public void setCustomerCarOffer(Car customerCarOffer) 
+	{
+		this.customerCarOffer = customerCarOffer;
 	}
+
+
 	
 }

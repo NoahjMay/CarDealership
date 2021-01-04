@@ -259,22 +259,25 @@ public class SaveLoadFile
 			File carOfferFile = new File("carOfferFile.txt");
 			FileWriter carOfferWriter = new FileWriter(carOfferFile);
 
-			
-			
-			
 			for (int index = 0; index < carOffer.size(); index++) 
 			{
+				String offerPrice = carOffer.get(index).getOfferPrice();
+				
+				boolean offerAcepted = carOffer.get(index).isOfferAccepted();
 				
 				Customer customer = carOffer.get(index).getCustomer();
-				Car car = carOffer.get(index).getCustomerOfferCar();
+				
+				Car car = carOffer.get(index).getCustomerCarOffer();
 
-				carOfferWriter.write(	customer.getPhoneCustomer() 	+ ", " + customer.getEmailCustomer()	+ ", " +
-										customer.getFirstNameCustomer() + ", " + customer.getLastNameCustomer() + ", " +  
+				carOfferWriter.write(	offerPrice + ", " + offerAcepted + ", " +
+						
+					customer.getPhoneCustomer() 	+ ", " + customer.getEmailCustomer()	+ ", " +
+					customer.getFirstNameCustomer() + ", " + customer.getLastNameCustomer() + ", " +  
 										
-										car.getImage()		+ ", " + car.getDescription()	+ ", " + car.getMake()	+ ", " + car.getModel() + ", " +
-										car.getYear() 		+ ", " + car.getTrim() 			+ ", " + car.getColor() + ", " + car.getDoors() + ", " + 
-										car.getMpg() 		+ ", " + car.getVin()			+ ", " + car.getMiles() + ", " + car.getPrice() + ", " + 
-										car.getDaysOnLot() 	+ ", " + car.isBidable() 		+ ", " + car.isNew() 	+ "\n");
+					car.getImage()		+ ", " + car.getDescription()	+ ", " + car.getMake()	+ ", " + car.getModel() + ", " +
+					car.getYear() 		+ ", " + car.getTrim() 			+ ", " + car.getColor() + ", " + car.getDoors() + ", " + 
+					car.getMpg() 		+ ", " + car.getVin()			+ ", " + car.getMiles() + ", " + car.getPrice() + ", " + 
+					car.getDaysOnLot() 	+ ", " + car.isBidable() 		+ ", " + car.isNew() 	+ "\n");
 			}
 
 			carOfferWriter.close();
@@ -292,17 +295,14 @@ public class SaveLoadFile
 		ArrayList<CarOffer> carOffer = new ArrayList<CarOffer>();
 		try 
 		{
-			File offerCarsFile = new File("offerCarsFile.txt");
+			File carOfferFile = new File("carOfferFile.txt");
 			
-			if(offerCarsFile.canRead()) 
+			if(carOfferFile.canRead()) 
 			{
-				Scanner fileScanner = new Scanner(offerCarsFile);
-
-				
+				Scanner fileScanner = new Scanner(carOfferFile);
 
 				while (fileScanner.hasNext()) 
 				{
-					
 					CarOffer offer = new CarOffer();
 					
 					Customer customer = new Customer();
@@ -311,28 +311,32 @@ public class SaveLoadFile
 					
 					String data[] = fileScanner.nextLine().split(", ");
 
-					customer.setPhoneCustomer(data[0].trim());
-					customer.setEmailCustomer(data[1].trim());
-					customer.setFirstNameCustomer(data[2].trim());
-					customer.setLastNameCustomer(data[3].trim());
-					car.setImage(data[4].trim());
-					car.setDescription(data[5].trim());
-					car.setMake(data[6].trim());
-					car.setModel(data[7].trim());
-					car.setYear(data[8].trim());
-					car.setTrim(data[9].trim());
-					car.setColor(data[10].trim());
-					car.setDoors(data[11].trim());
-					car.setMpg(data[12].trim());
-					car.setVin(data[13].trim());
-					car.setMiles(data[14].trim());
-					car.setPrice(data[15].trim());
-					car.setDaysOnLot(data[16].trim());
-					car.setBidable(Boolean.parseBoolean(data[17].trim()));
-					car.setNew(Boolean.parseBoolean(data[18].trim()));
+					offer.setOfferPrice(data[0].trim());
+					offer.setOfferAccepted(Boolean.parseBoolean(data[1].trim()));
+					
+					customer.setPhoneCustomer(data[2].trim());
+					customer.setEmailCustomer(data[3].trim());
+					customer.setFirstNameCustomer(data[4].trim());
+					customer.setLastNameCustomer(data[5].trim());
+					
+					car.setImage(data[6].trim());
+					car.setDescription(data[7].trim());
+					car.setMake(data[8].trim());
+					car.setModel(data[9].trim());
+					car.setYear(data[10].trim());
+					car.setTrim(data[11].trim());
+					car.setColor(data[12].trim());
+					car.setDoors(data[13].trim());
+					car.setMpg(data[14].trim());
+					car.setVin(data[15].trim());
+					car.setMiles(data[16].trim());
+					car.setPrice(data[17].trim());
+					car.setDaysOnLot(data[18].trim());
+					car.setBidable(Boolean.parseBoolean(data[19].trim()));
+					car.setNew(Boolean.parseBoolean(data[20].trim()));
 					
 					offer.setCustomer(customer);
-					offer.setCustomerOfferCar(car);
+					offer.setCustomerCarOffer(car);
 					
 					carOffer.add(offer);
 				}
@@ -359,16 +363,23 @@ public class SaveLoadFile
 			
 			for (int index = 0; index < soldCars.size(); index++) 
 			{		
+				String offerPrice = soldCars.get(index).getOfferPrice();
+				
+				boolean offerAcepted = soldCars.get(index).isOfferAccepted();
+				
 				Customer customer = soldCars.get(index).getCustomer();
-				Car car = soldCars.get(index).getCustomerOfferCar();
+				
+				Car car = soldCars.get(index).getCustomerCarOffer();
 
-				soldCarsWriter.write(	customer.getPhoneCustomer() 	+ ", " + customer.getEmailCustomer()	+ ", " +
-										customer.getFirstNameCustomer() + ", " + customer.getLastNameCustomer() + ", " +  
+				soldCarsWriter.write(	offerPrice + ", " + offerAcepted + ", " +
 						
-										car.getImage()		+ ", " + car.getDescription()	+ ", " + car.getMake()	+ ", " + car.getModel() + ", " +
-										car.getYear() 		+ ", " + car.getTrim() 			+ ", " + car.getColor() + ", " + car.getDoors() + ", " + 
-										car.getMpg() 		+ ", " + car.getVin()			+ ", " + car.getMiles() + ", " + car.getPrice() + ", " + 
-										car.getDaysOnLot() 	+ ", " + car.isBidable() 		+ ", " + car.isNew() 	+ "\n");
+					customer.getPhoneCustomer() 	+ ", " + customer.getEmailCustomer()	+ ", " +
+					customer.getFirstNameCustomer() + ", " + customer.getLastNameCustomer() + ", " +  
+										
+					car.getImage()		+ ", " + car.getDescription()	+ ", " + car.getMake()	+ ", " + car.getModel() + ", " +
+					car.getYear() 		+ ", " + car.getTrim() 			+ ", " + car.getColor() + ", " + car.getDoors() + ", " + 
+					car.getMpg() 		+ ", " + car.getVin()			+ ", " + car.getMiles() + ", " + car.getPrice() + ", " + 
+					car.getDaysOnLot() 	+ ", " + car.isBidable() 		+ ", " + car.isNew() 	+ "\n");
 			}
 
 			soldCarsWriter.close();
@@ -392,11 +403,8 @@ public class SaveLoadFile
 			{
 				Scanner fileScanner = new Scanner(soldCarsFile);
 
-				
-
 				while (fileScanner.hasNext()) 
 				{
-					
 					CarOffer sold = new CarOffer();
 					
 					Customer customer = new Customer();
@@ -405,29 +413,32 @@ public class SaveLoadFile
 					
 					String data[] = fileScanner.nextLine().split(", ");
 
-					customer.setPhoneCustomer(data[0].trim());
-					customer.setEmailCustomer(data[1].trim());
-					customer.setFirstNameCustomer(data[2].trim());
-					customer.setLastNameCustomer(data[3].trim());
-					car.setImage(data[4].trim());
-					car.setDescription(data[5].trim());
-					car.setMake(data[6].trim());
-					car.setModel(data[7].trim());
-					car.setYear(data[8].trim());
-					car.setTrim(data[9].trim());
-					car.setColor(data[10].trim());
-					car.setDoors(data[11].trim());
-					car.setMpg(data[12].trim());
-					car.setVin(data[13].trim());
-					car.setMiles(data[14].trim());
-					car.setPrice(data[15].trim());
-					car.setDaysOnLot(data[16].trim());
-					car.setBidable(Boolean.parseBoolean(data[17].trim()));
-					car.setNew(Boolean.parseBoolean(data[18].trim()));
+					sold.setOfferPrice(data[0].trim());
+					sold.setOfferAccepted(Boolean.parseBoolean(data[1].trim()));
 					
-					sold.setOfferAccepted(true);
+					customer.setPhoneCustomer(data[2].trim());
+					customer.setEmailCustomer(data[3].trim());
+					customer.setFirstNameCustomer(data[4].trim());
+					customer.setLastNameCustomer(data[5].trim());
+					
+					car.setImage(data[6].trim());
+					car.setDescription(data[7].trim());
+					car.setMake(data[8].trim());
+					car.setModel(data[9].trim());
+					car.setYear(data[10].trim());
+					car.setTrim(data[11].trim());
+					car.setColor(data[12].trim());
+					car.setDoors(data[13].trim());
+					car.setMpg(data[14].trim());
+					car.setVin(data[15].trim());
+					car.setMiles(data[16].trim());
+					car.setPrice(data[17].trim());
+					car.setDaysOnLot(data[18].trim());
+					car.setBidable(Boolean.parseBoolean(data[19].trim()));
+					car.setNew(Boolean.parseBoolean(data[20].trim()));
+					
 					sold.setCustomer(customer);
-					sold.setCustomerOfferCar(car);
+					sold.setCustomerCarOffer(car);
 					
 					soldCars.add(sold);
 				}

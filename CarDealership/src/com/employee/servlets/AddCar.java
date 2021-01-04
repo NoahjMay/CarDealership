@@ -106,22 +106,6 @@ public class AddCar extends HttpServlet {
 				save.usedCarsSave(usedCars);
 			}
 		}
-		
-		session.removeAttribute("image");
-		session.removeAttribute("description");
-		session.removeAttribute("make");
-		session.removeAttribute("model");
-		session.removeAttribute("year");
-		session.removeAttribute("trim");
-		session.removeAttribute("color");
-		session.removeAttribute("doors");
-		session.removeAttribute("mpg");
-		session.removeAttribute("vin");
-		session.removeAttribute("miles");
-		session.removeAttribute("price");
-		session.removeAttribute("daysOnLot");
-		session.removeAttribute("bidable");
-		session.removeAttribute("isNew");
 
 		session.setAttribute("newCars",newCars); 
 		session.setAttribute("usedCars",usedCars);

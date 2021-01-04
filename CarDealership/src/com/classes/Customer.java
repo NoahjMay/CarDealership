@@ -2,50 +2,73 @@ package com.classes;
 
 public class Customer 
 {
+	private String phoneCustomer;
 	private String emailCustomer;
 	private String passwordCustomer;
 	private String firstNameCustomer;
 	private String lastNameCustomer;
 
-	Customer(String emailCustomer, String passwordCustomer, String firstNameCustomer, String lastNameCustomer) 
+	public Customer(){}
+
+	public Customer(String phoneCustomer, String emailCustomer, String passwordCustomer, String firstNameCustomer, String lastNameCustomer) 
 	{
-	this.emailCustomer 		= emailCustomer;
-	this.passwordCustomer 	= passwordCustomer;
-	this.firstNameCustomer 	= firstNameCustomer;
-	this.lastNameCustomer 	= lastNameCustomer;		
+		this.phoneCustomer = phoneCustomer;
+		this.emailCustomer = emailCustomer;
+		this.passwordCustomer = passwordCustomer;
+		this.firstNameCustomer = firstNameCustomer;
+		this.lastNameCustomer = lastNameCustomer;
 	}
 
-	public String getEmailCustomer() {
+	public String getPhoneCustomer() 
+	{
+		return phoneCustomer;
+	}
+
+	public String getEmailCustomer() 
+	{
 		return emailCustomer;
 	}
 
-	public String getPasswordCustomer() {
+	public String getPasswordCustomer() 
+	{
 		return passwordCustomer;
 	}
 
-	public String getFirstNameCustomer() {
+	public String getFirstNameCustomer() 
+	{
 		return firstNameCustomer;
 	}
 
-	public String getLastNameCustomer() {
+	public String getLastNameCustomer() 
+	{
 		return lastNameCustomer;
 	}
 
-	public void setEmailCustomer(String emailCustomer) {
+	public void setPhoneCustomer(String phoneCustomer) 
+	{
+		this.phoneCustomer = phoneCustomer;
+	}
+
+	public void setEmailCustomer(String emailCustomer) 
+	{
 		this.emailCustomer = emailCustomer;
 	}
 
-	public void setPasswordCustomer(String passwordCustomer) {
+	public void setPasswordCustomer(String passwordCustomer) 
+	{
 		this.passwordCustomer = passwordCustomer;
 	}
 
-	public void setFirstNameCustomer(String firstNameCustomer) {
+	public void setFirstNameCustomer(String firstNameCustomer) 
+	{
 		this.firstNameCustomer = firstNameCustomer;
 	}
 
-	public void setLastNameCustomer(String lastNameCustomer) {
+	public void setLastNameCustomer(String lastNameCustomer) 
+	{
 		this.lastNameCustomer = lastNameCustomer;
 	}
 	
 	
+
 }
